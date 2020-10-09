@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <string>
 #include <vector>
-
+#include <iostream>
 #include "linux_parser.h"
 
 using std::stof;
@@ -35,13 +35,13 @@ string LinuxParser::OperatingSystem() {
 
 // DONE: An example of how to read data from the filesystem
 string LinuxParser::Kernel() {
-  string os, kernel;
+  string os, system, kernel;
   string line;
   std::ifstream stream(kProcDirectory + kVersionFilename);
   if (stream.is_open()) {
     std::getline(stream, line);
     std::istringstream linestream(line);
-    linestream >> os >> kernel;
+    linestream >> os >> system >> kernel;
   }
   return kernel;
 }
@@ -85,8 +85,33 @@ long LinuxParser::ActiveJiffies() { return 0; }
 // TODO: Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies() { return 0; }
 
+
+
+
+
 // TODO: Read and return CPU utilization
-vector<string> LinuxParser::CpuUtilization() { return {}; }
+vector<string> LinuxParser::CpuUtilization() { 
+
+  std::ifstream file(kProcDirectory + kStatFilename);
+  std::string line,name,next;
+
+  vector<string> out;
+
+  while(file){
+    std::getline(file,line);
+    std::istringstream linestream(line);
+    linestream >> name;
+    if(name == "cpu")
+    {
+      while(linestream >> next){
+        out.push_back(next);
+
+      }
+    }
+
+    }
+
+  return out; }
 
 // TODO: Read and return the total number of processes
 int LinuxParser::TotalProcesses() { return 0; }
