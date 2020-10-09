@@ -5,7 +5,8 @@
 
 int main() {
   System system;
+  system.UpTime();
   // std::cout<<system.Cpu().Utilization();
-  // LinuxParser::CpuUtilization();
-  NCursesDisplay::Display(system);
+ //   LinuxParser::UpTime();
+NCursesDisplay::Display(system);
 }
