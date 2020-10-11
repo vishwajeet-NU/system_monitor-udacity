@@ -28,7 +28,6 @@ float Processor::calculate_sum(float user, float nice, float system, float irq, 
 }
 
 
-// TODO: Return the aggregate CPU utilization
 float Processor::Utilization() { 
     
     float PrevIdle = calculate_sum(prev.idle,prev.iowait);

@@ -18,12 +18,11 @@ class Processor {
     prev = assign_values(prev);
 
  }
-  float Utilization();  // TODO: See src/processor.cpp
+  float Utilization(); 
   float calculate_sum(float idle, float iowait);
   float calculate_sum(float user, float nice, float system, float irq, float softirq, float steal);
 
   stat_vars assign_values(stat_vars &in);
-  // TODO: Declare any necessary private members
  private:
     stat_vars prev;
     stat_vars curr;
