@@ -1,6 +1,6 @@
 # System Monitor for Linux
-# Author : Vishwajeet Karmarkar
-# Email : vishwajeet@u.northwestern.edu
+## Author : Vishwajeet Karmarkar
+### Email : vishwajeet@u.northwestern.edu
 
 This is a system monitor built for the Udacity C++ Nanodegree <br>
 
